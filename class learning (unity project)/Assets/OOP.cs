@@ -9,6 +9,8 @@ public class OOP : MonoBehaviour
     {
         Red t = new Red(50);
         t.Drive();
+        Blue blue = new Blue(70);
+        blue.Drive();
 
     }
     //private void Start()
@@ -72,12 +74,12 @@ public class Fish: Animal//fish class inherits the animal class
     }
 }
 
-public abstract class Vechicle
+public abstract class Vehicle
 {
     private int speed;
 
 
-    public Vechicle(int _speed)
+    public Vehicle(int _speed)
     {
         speed = _speed;
     }
@@ -89,7 +91,7 @@ public abstract class Vechicle
 }
 
 
-public class Red : Vechicle 
+public class Red : Vehicle 
 {
     public Red(int _speed) : base(_speed)
     {
@@ -98,7 +100,22 @@ public class Red : Vechicle
     public override void Drive()
     {
         base.Drive();
-        Debug.Log("We be crusing");
+        Debug.Log("We be cruisin");
+    }
+
+}
+
+public class Blue : Vehicle 
+{
+    public Blue(int _speed): base(_speed)
+    {
+    }
+
+    public override void Drive()
+    {
+        base.Drive();
+        Debug.Log("we be Drivin.");
+
     }
 
 }
