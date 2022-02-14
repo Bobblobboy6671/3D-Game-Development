@@ -24,7 +24,7 @@ public class DepthFirstSeach : MonoBehaviour
     {
         Stack stack = new Stack();  //stack the nodes, the last one stacked is the next one visited 
         List<Node> visitedNodes = new List<Node>(); // tracks the visited nodes 
-
+     
         stack.Push(rootNode); // push the root node to the stack
 
         while (stack.Count > 0) // while the stack is not empty 
@@ -35,10 +35,11 @@ public class DepthFirstSeach : MonoBehaviour
             foreach (Node child in node.children) // loop through the children of node
             {
                 //if the child has not been visited or added to the stack
-                if (visitedNodes.Contains(child) == false && stack.Contains(child) == false)
+                if (visitedNodes.Contains(child) == false)
                 {
                     if(child == targetNode) //target node found 
                     {
+                        Debug.Log("target " + child.name + "found");
                         return visitedNodes.Count; //return number of visited nodes
                     }
                     stack.Push(child);
