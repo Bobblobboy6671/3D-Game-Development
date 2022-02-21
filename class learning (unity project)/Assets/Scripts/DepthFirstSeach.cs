@@ -9,12 +9,12 @@ public class DepthFirstSeach : MonoBehaviour
 
     private void Start()
     {
-        int stepCount = DFS(target);
-        if (stepCount > -1)
+        int stepCount = DFS(target);// call DFS method and store result in variable
+        if (stepCount > -1)//check that result is great than -1 (target found)
         {
             Debug.Log(target.name +"was found in " + stepCount + " Step. ");
         }
-        else
+        else// if result is -1, target node found
         {
             Debug.Log(target.name + "was not found. ");
         }
@@ -30,6 +30,7 @@ public class DepthFirstSeach : MonoBehaviour
         while (stack.Count > 0) // while the stack is not empty 
         {
             Node node = (Node)stack.Pop(); // get the last stack node 
+            Debug.Log("");
             visitedNodes.Add(node); // visit the node
 
             foreach (Node child in node.children) // loop through the children of node

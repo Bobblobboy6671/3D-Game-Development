@@ -6,12 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     public float gravity = 3.5f; // gravity force 
     public float speed = 2f; // normal player movement speed
+    [Range(0.1f, 1f)]
+    public float crouchSpeedMultiplier = 0.5f;
     public float jumpforce = 0.5f; //jumping force
 
     private CharacterController controller;
     private Vector3 motion;
     private float currentSpeed = 0;
     private float velocity = 0;
+    private bool crouching = false;
+    private bool isGrounded = false;
 
     // awake is called before the Start scrip
     private void Awake()
@@ -26,10 +30,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        isGrounded = controller.isGrounded;
         motion = Vector3.zero;
-        bool grounded = controller.isGrounded;
 
-        if (grounded == true)
+        if (isGrounded == true)
         {
             velocity = -gravity * Time.deltaTime;
         }
@@ -44,16 +48,34 @@ public class PlayerController : MonoBehaviour
         float inputX = Input.GetAxisRaw("Vertical") * currentSpeed;
         float inputY = Input.GetAxisRaw("Horizontal") * currentSpeed;
 
-        if(controller.isGrounded == true)
+        if (isGrounded == true)
         {
-            if(Input.GetKeyDown(KeyCode.Space)== true)
+            if (crouching == false)
             {
-                velocity = jumpforce;
+                if (Input.GetKeyDown(KeyCode.Space) == true)
+                {
+                    velocity = jumpforce;
+                }
+                else if (Input.GetKeyDown(KeyCode.C) == true)
+                {
+                    crouching = true;
+                    currentSpeed = speed * crouchSpeedMultiplier;
+                    controller.height = 1;
+                }
             }
         }
-        ApplyMovement();
-    }
+        if (crouching == true)
+        {
+            if (Input.GetKeyUp(KeyCode.C) == true)
+            {
+                crouching = false;
+                currentSpeed = speed;
+                controller.height = 2;
+            }
+        }
 
+        ApplyMovement();
+    } 
 
     void ApplyMovement()
     {
