@@ -53,19 +53,24 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\GenerateHUD.cs" />
+    <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\Interactions.cs" />
     <Compile Include="Assets\Scripts\Kick.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\DamageTrigger.cs" />
     <Compile Include="Assets\Scripts\DepthFirstSeach.cs" />
+    <Compile Include="Assets\Scripts\HealthPotion.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\Scripts\ObjectTeleport.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\BreathFirstSeach.cs" />
     <Compile Include="Assets\Scripts\OOP.cs" />
-    <Compile Include="Assets\Scripts\Interactions.cs" />
-    <Compile Include="Assets\Scripts\Door.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\DamageTrigger.cs" />
-    <Compile Include="Assets\Scripts\HealthPotion.cs" />
+    <Compile Include="Assets\FiniteStateMachine.cs" />
+    <Compile Include="Assets\PlayerTeleport.cs" />
+    <Compile Include="Assets\DialogueUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

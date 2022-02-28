@@ -8,7 +8,7 @@ public class ObjectTeleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Ball") // chech that collider entering trigger is tagged 'ball'
+        if(other.tag == "Ball") // che that collider entering trigger is tagged 'ball'
         {
             if(other.TryGetComponent(out Rigidbody rb) ==true)//get rigidbody from colliding object
             {
